@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/workerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Worker Name"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+
+            <TextView
+                android:id="@+id/workerService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plumber"
+                android:textSize="14sp"
+                android:textColor="#666"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnApprove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Approve"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFF"/>
+        <Button
+            android:id="@+id/btnReject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reject"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
