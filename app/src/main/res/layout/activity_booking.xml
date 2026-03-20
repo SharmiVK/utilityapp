@@ -44,7 +44,9 @@
             android:hint="Date (e.g., 25-10-2025)"
             android:inputType="date"
             android:background="@android:drawable/edit_text"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:focusable="false"
+            android:clickable="true"/>
 
         <EditText
             android:id="@+id/etTime"
@@ -53,7 +55,10 @@
             android:hint="Time (e.g., 10:00 AM)"
             android:inputType="time"
             android:background="@android:drawable/edit_text"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:focusable="false"
+            android:clickable="true"/>
+
 
         <EditText
             android:id="@+id/etAddress"
@@ -63,13 +68,38 @@
             android:gravity="top|start"
             android:background="@android:drawable/edit_text"
             android:layout_marginBottom="24dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total Amount:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹0.00"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnConfirmBooking"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="Confirm Booking"
-            android:backgroundTint="#6200EE"/>
+            android:layout_height="wrap_content"
+            android:text="Confirm &amp; Pay Now"
+            android:backgroundTint="#3399cc"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 </LinearLayout>

@@ -15,6 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.List;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingViewHolder> {
 
@@ -140,5 +142,22 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             tvDistance = itemView.findViewById(R.id.tvDistance);
             btnAccept = itemView.findViewById(R.id.btnAccept);
         }
+    }
+    private void acceptBooking(Booking booking) {
+        String workerId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        Map<String, Object> update = new HashMap<>();
+        update.put("status", "accepted"); // Change status so it disappears from other workers
+        update.put("workerId", workerId);  // Link this worker to the job
+
+        db.collection("bookings").document(booking.getDocumentId())
+                .update(update)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(context, "Job Accepted! Check 'My Tasks'", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(context, "Failed to accept: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 }

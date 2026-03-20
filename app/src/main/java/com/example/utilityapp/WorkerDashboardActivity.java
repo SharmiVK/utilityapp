@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import android.util.Log;
 
 public class WorkerDashboardActivity extends AppCompatActivity {
 
@@ -218,10 +219,15 @@ public class WorkerDashboardActivity extends AppCompatActivity {
     private void loadAvailableJobs() {
         // 🌟 STEP 4: FETCH ONLY RELEVANT JOBS
         db.collection("bookings")
-                .whereEqualTo("status", "pending")
+                .whereEqualTo("status", "Confirmed")
                 .whereEqualTo("serviceName", workerProfession)
+                .whereEqualTo("paymentStatus", "paid")
                 .addSnapshotListener((value, error) -> {
-                    if (error != null) return;
+                    if (error != null) {
+                        Log.e("FirestoreError", error.getMessage());
+                        return;
+                    }
+
                     if (value != null) {
                         bookingList.clear();
                         for (DocumentSnapshot d : value.getDocuments()) {

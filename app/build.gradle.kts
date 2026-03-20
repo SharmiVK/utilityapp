@@ -50,4 +50,6 @@ dependencies {
 
     // 🌟 NEW: Google Location Services (Added this line!)
     implementation("com.google.android.gms:play-services-location:21.0.1")
+    // Payment module
+    implementation("com.razorpay:checkout:1.6.33")
 }

@@ -14,6 +14,7 @@ public class Booking {
     private double latitude;
     private double longitude;
     private long timestamp;       // ✅ ADDED: exists in Firestore but was missing here
+    private String paymentStatus; // Add this variable
 
     // Required empty constructor for Firestore
     public Booking() {}
@@ -48,6 +49,15 @@ public class Booking {
     public double getLongitude()   { return longitude; }
     public long   getTimestamp()   { return timestamp; }
 
+
+
+    // Add this getter method
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+
+
     // ─── Setters (ALL required for Firestore toObject()) ────
     public void setServiceName(String serviceName) { this.serviceName = serviceName; }
     public void setDate(String date)               { this.date = date; }
@@ -61,4 +71,6 @@ public class Booking {
     public void setLatitude(double latitude)       { this.latitude = latitude; }
     public void setLongitude(double longitude)     { this.longitude = longitude; }
     public void setTimestamp(long timestamp)       { this.timestamp = timestamp; }
+    // Add this setter method
+    public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
 }
