@@ -80,7 +80,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
 
                 String status = snapshot.getString("status");
 
-                if ("pending".equals(status)) {
+                if ("Confirmed".equals(status)) {
                     transaction.update(ref,
                             "workerId", currentWorkerId,
                             "status", "accepted");
